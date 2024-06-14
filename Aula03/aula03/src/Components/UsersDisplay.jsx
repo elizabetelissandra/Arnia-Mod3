@@ -1,29 +1,27 @@
+import UserItem from "./UserItem";
+import { users } from "../data/users";
+
 const UsersDisplay = () => {
+  const sum = (number1, number2) => {
+    return console.log(number1 + number2);
+  };
+
+  const hello = () => {
+    return console.log("Hello");
+  };
   return (
     <>
       <h2>Usuários</h2>
       <ul id="users">
-        <UserItem
-          occupation="Médico"
-          name="João"
-          age={18}
-          sum={sum}
-          hello={hello}
-        />
-        <UserItem
-          occupation="Médico"
-          name="Maria"
-          age={20}
-          sum={sum}
-          hello={hello}
-        />
-        <UserItem
-          occupation="Médico"
-          name="Pedro"
-          age={22}
-          sum={sum}
-          hello={hello}
-        />
+        {users.map((user) => (
+          <UserItem
+            name={user.name}
+            age={user.age}
+            occupation={user.occupation}
+            sum={sum}
+            hello={hello}
+          />
+        ))}
       </ul>
     </>
   );
