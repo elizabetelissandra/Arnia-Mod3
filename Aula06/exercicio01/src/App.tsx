@@ -1,5 +1,6 @@
 import './App.css'
 import Forms from './components/Forms'
+import UserName from './components/UserName'
 
 // Criar um formulário para cadastro de usuário com validação dos seguintes campos:
 
@@ -22,7 +23,7 @@ function App() {
   return (
     <div className='divApp'>
       <h1>Cadastro de Clientes</h1>
-      <Forms/>
+      <UserName/>
     </div>
   )
 }
