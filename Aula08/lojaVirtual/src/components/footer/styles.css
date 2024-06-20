@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #6f4aa3;
+    color: white;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .checkout-button:hover {
+    background-color: #7a57c2;
+  }
+  
+  .payment-methods img {
+    width: 30px;
+    padding: 10px;
+    margin: 0 10px;
+    height: 30px;
+  }
+  
