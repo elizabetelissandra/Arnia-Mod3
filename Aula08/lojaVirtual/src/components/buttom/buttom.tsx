@@ -1,16 +1,16 @@
 import {Buttom} from "./styles.ts";
 
 
-interface Botaozinho {
+interface BotaoProps {
   name: string;
 }
 
-const Botao = ({ name }: Botaozinho) => {
+export const Botao = ({ name }: BotaoProps) => {
   return (
     <>
-        <Buttom>Ir para o {name}</Buttom>
+        <Buttom>{name}</Buttom>
     </>
   );
 };
 
-export default Botao;
+ ;

@@ -1,3 +1,4 @@
+// import ProductHeader from "../header/productHeader";
 import ProductCard from "../productCard";
 // import { Link } from 'eact-router-dom';
 import "./styles.css";
@@ -68,15 +69,11 @@ interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = ({
-  onAddToCart,
-  cartCount,
+  onAddToCart
 }) => {
   return (
     <div className="products">
-      <div className="product-header">
-        <h2>Produtos</h2>
-        <div className="cart-count">{cartCount}</div>
-      </div>
+      
       <div className="product-list">
         {products.map((product) => (
           <ProductCard
