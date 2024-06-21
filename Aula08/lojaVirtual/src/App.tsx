@@ -1,6 +1,7 @@
 import './App.css'
 import Page1 from './pages/pag1'
-import Page2 from './pages/pag2'
+// import Page2 from './pages/pag2'
+
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <>
-    <Page2/>
+    <Page1/>
     </>
   )
 }

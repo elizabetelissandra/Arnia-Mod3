@@ -3,6 +3,12 @@
   padding: 0;
 }
 
+.container{
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+}
+
 .footer {
     display: flex;
     justify-content: space-between;
