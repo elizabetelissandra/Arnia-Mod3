@@ -1,27 +1,18 @@
-import { useState } from 'react'
-import './App.css'
-import Page1 from './pages/pag1'
-import Page2 from './pages/pag2'
-import Page3 from './pages/pag3'
+import CartPage from "./pages/pag2";
+import ProductPage from "./pages/pag1";
+import { useState } from "react";
+import CheckoutPage from "./pages/pag3";
 
 
-function App() {
 
-  const [telaAtual, setTelaAtual] = useState("cart")
+const App = () => {
+  const [page, setPage] = useState("home")
+  return( 
+  <div>
+    {page === "home" ? <ProductPage goToCart={() => setPage("cartPage")} /> : null}
+    {page === "cartPage" ? <CartPage goToCheckout={() => setPage("checkout")} /> : null}
+    {page === "checkout" ? <CheckoutPage confirmPurchase={() => setPage("home")} /> : null}
+  </div>
+)};
 
-  const handleNavigation = (page: string) => {
-
-    setTelaAtual(page)
-  }
-
-  return (
-    <>
-
-      {telaAtual === "products" && <Page1/>}
-      {telaAtual === "cart" && <Page2 map={undefined} id={0} title={''} price={0} image={''} platform={''}/>}
-      {telaAtual === "checkout" && <Page3/> }
-    </>
-  )
-}
-
-export default App
+export default App;

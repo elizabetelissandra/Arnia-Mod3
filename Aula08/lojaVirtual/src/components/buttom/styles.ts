@@ -9,6 +9,12 @@ export const Buttom = styled.button`
     border-radius: 4px;
     cursor: pointer;
     margin-bottom: 20px;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+
+    &:hover {
+        background-color: #663399;
+    }
 
 `;
  
