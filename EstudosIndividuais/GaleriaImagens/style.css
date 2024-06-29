@@ -1,0 +1,17 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .gallery-item {
+    flex: 1 1 calc(25% - 10px); /* Responsivo para 4 itens por linha */
+    box-sizing: border-box;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
