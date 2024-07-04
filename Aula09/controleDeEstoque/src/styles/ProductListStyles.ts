@@ -26,6 +26,15 @@ export const DivList = styled.div`
     
 `;
 
+export const InputSearch = styled.input`
+    width: 500px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+`
+
 
 
 export const List = styled.ul`
@@ -37,4 +46,13 @@ export const List = styled.ul`
     list-style: none;
     padding: 0;
     background-color: #BF907E;
+`
+
+export const DivPreco = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
 `

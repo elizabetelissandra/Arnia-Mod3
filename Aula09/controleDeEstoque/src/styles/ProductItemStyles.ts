@@ -28,6 +28,23 @@ export const Paragraph = styled.p`
     margin-bottom: 10px;
 `
 
+export const Tipos = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 400px;
+    height: 100px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #BF8F73;
+    border: 5px solid #402B23;
+`
+
 export const Item = styled.li`
     display: flex;
     align-items: center;

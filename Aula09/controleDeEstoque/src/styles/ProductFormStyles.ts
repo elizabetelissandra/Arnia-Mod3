@@ -33,11 +33,42 @@ export const Label = styled.label`
     margin-bottom: 10px;
 `
 
+export const LabelCheckbox = styled.label`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+`
+
 export const Input = styled.input`
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+`
+
+export const BoxInput = styled.div`
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+
+    input{
+        width: 10%;
+        height: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
 `
 
 export const Button = styled.button`
