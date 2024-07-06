@@ -1,0 +1,43 @@
+ { "products": [
+    {
+        "name": "Coca-cola",
+        "description": "Refrigerante lata",
+        "price": 5,
+        "quantity": 10,
+        "type": "bebida",
+        "isDrink": true,
+        "isFood": false,
+        "isCleaningProduct": false
+    },
+    {
+        "name": "Cerveja",
+        "description": "Cerveja long neck",
+        "price": 10,
+        "quantity": 5,
+        "type": "bebida",
+        "isDrink": true,
+        "isFood": false,
+        "isCleaningProduct": false
+    },
+    {
+        "name": "Macarrão",
+        "description": "Macarrão parafuso",
+        "price": 5,
+        "quantity": 10,
+        "type": "comida",
+        "isDrink": false,
+        "isFood": true,
+        "isCleaningProduct": false
+    },
+    {
+        "name": "Sabão em po",
+        "description": "Sabão em po 500ml",
+        "price": 5,
+        "quantity": 10,
+        "type": "limpeza",
+        "isDrink": false,
+        "isFood": false,
+        "isCleaningProduct": true
+    }
+]
+}

@@ -5,18 +5,21 @@ import {
   ButtonRemover,
   Item,
   Paragraph,
-  Quantidades,
-  Tipos,
+  Quantidades
 } from "../styles/ProductItemStyles";
 import { DivPreco } from "../styles/ProductListStyles";
 import { ProductItemProps } from "../types/ProductItemProps";
+import { useTheme } from "../context/ThemeContext";
 
 
-const ProductItem = ({ Remover, product }: ProductItemProps) => {
+const ProductItem = ({ product, openModal }: ProductItemProps) => {
   const [quantity, setQuantity] = useState<number>(product.quantity);
   const [price, setPrice] = useState(product.price);
+  
 
-   
+const handleRemove = () => {
+  openModal(product);
+};
 
   const addToCart = () => {
     setQuantity(q => Number(q) + 1);
@@ -43,30 +46,37 @@ const ProductItem = ({ Remover, product }: ProductItemProps) => {
   };
 
 
+    if(product.isDrink){
+      product.type = "Bebida";
+    }
+    if(product.isFood){
+      product.type = "Comida";
+    }
+    if(product.isCleaningProduct){
+      product.type = "Limpeza";
+    }
+  
+    const {theme} = useTheme()
+  
   return (
     <Item>
-      <Box>
+      <Box theme={theme}>
         <Paragraph>Nome: {product.name}</Paragraph>
         <Paragraph>Descrição: {product.description}</Paragraph>
-        <Tipos>
-        <Paragraph>É produto de Limpeza? - {product.isCleaningProduct ? 'Sim' : 'Não'}
-        </Paragraph>
-        <Paragraph>É bebida? - {product.isDrink ? 'Sim' : 'Não'}</Paragraph>
-        <Paragraph>É comida? - {product.isFood ? 'Sim' : 'Não'}</Paragraph>
-        </Tipos>
+        <Paragraph>Tipo: {product.type}</Paragraph>
         <DivPreco>
           <Paragraph>Preço: R${price}</Paragraph>
-          <ButtonQuantidades onClick={handleEditPrice}>
+          <ButtonQuantidades theme={theme} onClick={handleEditPrice}>
             Editar
           </ButtonQuantidades>
         </DivPreco>
         <Quantidades>
-          <ButtonQuantidades onClick={removeFromCart}>-</ButtonQuantidades> 
+          <ButtonQuantidades theme={theme} onClick={removeFromCart}>-</ButtonQuantidades> 
           <Paragraph>Quantidade:{quantity}</Paragraph>
-          <ButtonQuantidades onClick={addToCart} >+</ButtonQuantidades>
+          <ButtonQuantidades theme={theme} onClick={addToCart} >+</ButtonQuantidades>
         </Quantidades>
         <Paragraph>Total: R${product.price * quantity}</Paragraph>
-        <ButtonRemover onClick={Remover}>Remover</ButtonRemover>
+        <ButtonRemover theme={theme} onClick={handleRemove}>Remover</ButtonRemover>
       </Box>
     </Item>
   );

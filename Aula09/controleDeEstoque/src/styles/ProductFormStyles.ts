@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useTheme } from "../context/ThemeContext";
 
 export const Container = styled.div`
     display: flex;
@@ -10,7 +11,9 @@ export const Container = styled.div`
     padding: 20px;
     border-radius: 10px;
     margin: 20px;
-    background-color: #D9D9D9;
+    background-color: ;
+    background-color: ${({ theme }: string) => ((theme) === "dark" ? "#012E40" : "#D9D9D9")};
+    border:5px solid ${({ theme }: string) => ((theme) === "dark" ? "#D9D9D9" : "#ec7963")};
 `;
 
 export const Form = styled.form`
@@ -20,6 +23,7 @@ export const Form = styled.form`
     justify-content: center;
     gap: 15px;
     width: 100%;
+   background-color: ${({ theme }: string) => ((theme) === "dark" ? "#012E40" : "#D9D9D9")};
 `
 
 export const Label = styled.label`
@@ -31,6 +35,7 @@ export const Label = styled.label`
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 10px;
+    color: ${({ theme }) => ((theme) === "dark" ? "#fff" : "#000")};
 `
 
 export const LabelCheckbox = styled.label`
@@ -42,6 +47,7 @@ export const LabelCheckbox = styled.label`
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 10px;
+     color: ${({ theme }) => ((theme) === "dark" ? "#fff" : "#000")};
 `
 
 export const Input = styled.input`
@@ -76,12 +82,12 @@ export const Button = styled.button`
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #8C342B;
+    background-color: ${({ theme }) => ((theme) === "dark" ? "#164773" : "#8C342B")};
     color: #fff;
     font-weight: bold;
     cursor: pointer;
 
     &:hover {
-        background-color: #BF907E;
+        background-color: #ec7963;
     }
 `

@@ -9,6 +9,7 @@ import {
   LabelCheckbox,
 } from "../styles/ProductFormStyles";
 import { ProductFormProps } from "../types/ProductFormProps";
+import { useTheme } from "../context/ThemeContext";
 
 const ProductForm = ({ addProduct }: ProductFormProps) => {
   const [produto, setProduto] = useState({
@@ -50,10 +51,12 @@ const ProductForm = ({ addProduct }: ProductFormProps) => {
     });
   };
 
+  const {theme} = useTheme()
+
   return (
-    <Container>
-      <Form onSubmit={handleSubmit}>
-        <Label htmlFor="name">
+    <Container theme={theme}>
+      <Form theme={theme} onSubmit={handleSubmit}>
+        <Label theme={theme} htmlFor="name">
           Nome:
           <Input
             onChange={handleChange}
@@ -64,7 +67,7 @@ const ProductForm = ({ addProduct }: ProductFormProps) => {
             required
           />
         </Label>
-        <Label htmlFor="descricao">
+        <Label theme={theme} htmlFor="descricao">
           Descrição:
           <Input
             onChange={handleChange}
@@ -75,7 +78,7 @@ const ProductForm = ({ addProduct }: ProductFormProps) => {
             required
           />
         </Label>
-        <Label htmlFor="price">
+        <Label theme={theme} htmlFor="price">
           Preço:
           <Input
             onChange={handleChange}
@@ -86,7 +89,7 @@ const ProductForm = ({ addProduct }: ProductFormProps) => {
             required
           />
         </Label>
-        <Label htmlFor="quantity">
+        <Label theme={theme} htmlFor="quantity">
           Quantidade:
           <Input
             onChange={handleChange}
@@ -97,7 +100,7 @@ const ProductForm = ({ addProduct }: ProductFormProps) => {
             required
           />
         </Label>
-        <LabelCheckbox htmlFor="isDrink">
+        <LabelCheckbox theme={theme} htmlFor="isDrink">
           Selecione o tipo de produto:
           <BoxInput>
             É bebida?
@@ -123,7 +126,7 @@ const ProductForm = ({ addProduct }: ProductFormProps) => {
             />
           </BoxInput>
         </LabelCheckbox>
-        <Button type="submit">Cadastrar</Button>
+        <Button theme={theme} type="submit">Cadastrar</Button>
       </Form>
     </Container>
   );

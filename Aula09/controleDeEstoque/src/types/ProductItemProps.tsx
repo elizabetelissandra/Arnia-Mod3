@@ -1,13 +1,15 @@
 export interface ProductItemProps {
-    Remover: () => void;
+    openModal: (item: any) => void;
     newPrice: string | number | null;
     product: {
       name: string;
       description: string;
       price: number;
       quantity: number;
-      isDrink: false,
-     isFood: false,
-    isCleaningProduct: false,
+      type: string
+      isDrink: boolean
+      isFood: boolean
+      isCleaningProduct: boolean
     };
+    Remover: () => void;
   }

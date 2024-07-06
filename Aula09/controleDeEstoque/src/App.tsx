@@ -1,23 +1,18 @@
-import './App.css'
-
-import ProductList from './components/ProductList'
-
+import "./App.css";
+import ProductList from "./components/ProductList";
 function App() {
+  const handleAddProduct = () => {};
 
-
- const handleAddProduct = () => {
-  
-  }
-
-  function handleRemoverProduct(): void {
-  
-  }
+  function handleRemoverProduct(): void {}
 
   return (
     <>
-      <ProductList addProduct={handleAddProduct} Remover={handleRemoverProduct}/>
+        <ProductList
+          addProduct={() => handleAddProduct}
+          Remover={handleRemoverProduct}
+        />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

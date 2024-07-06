@@ -1,28 +1,26 @@
-import { useState } from "react"
-import { ModalStyled } from "../styles/ModalStyles"
-import { createPortal } from "react-dom"
+import { CloseButton, ConfirmButton, ModalContent, ModalStyled, Pergunta, Title } from "../styles/ModalStyles";
+import { ModalProps } from "../types/ModalProps";
 
-export const ConteudoModal = ({onRemove}: {onRemove: () => void}) => {
-    return (
-        <ModalStyled>
-            <p>Tem certeza que deseja remover o item?</p>
-            <button onClick={onRemove}>Remover</button>
-            <button onClick={() => onRemove()}>Cancelar</button>
-        </ModalStyled>
-    )
-}
+const Modal = ({ show, onClose, onConfirmRemove }: ModalProps) => {
+  if (!show) {
+    return null;
+  }
 
-export const Modal = () => {
-    const [showModal, setShowModal] = useState(false)
-    return (
+  return (
+    <ModalStyled >
+      <ModalContent className="modal-content">
+        <Title>Controle de Estoque</Title>
+        <Pergunta>Tem certeza que deseja remover este item?</Pergunta>
         <div>
-            <button onClick={() => setShowModal(true)}>Remover</button>
-
-            {showModal && createPortal(
-                <ConteudoModal onRemove={() => setShowModal(false)}/>,
-                document.body
-            )}
-        </div>
-    )
-}
-
+          <CloseButton className="cancel-button" onClick={onClose}>
+            Cancelar
+          </CloseButton>
+          <ConfirmButton className="confirm-button" onClick={onConfirmRemove}>
+            Confirmar Remoção
+          </ConfirmButton>
+      </div>
+    </ModalContent>
+    </ModalStyled>
+  );
+};
+export default Modal;
