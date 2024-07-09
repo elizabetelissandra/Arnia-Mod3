@@ -53,3 +53,4 @@ export const verificarVencedor = (tabuleiro: string[]) => {
   }
   return null;
 };
+

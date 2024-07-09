@@ -14,13 +14,14 @@ import {
 } from "../styles/ProductListStyles";
 import Modal from "./Modal";
 import { useTheme } from "../context/ThemeContext";
-
 import modoNoturno from "../img/modo-noturno.png";
-import sol from "../img/sol.png";
+import modoClaro from "../img/sol.png"
+import React from "react";
 
 const ProductList = () => {
   const [products, setProducts] = useState<
     {
+      identificadorCor: any;
       name: string;
       description: string;
       price: number;
@@ -49,14 +50,31 @@ const ProductList = () => {
     setProducts([...products, product]);
   };
 
+  const coresIdentificacao: Record<string, string> = {
+    food: "#FFD700",
+    drink: "#007BFF",
+    cleaningProduct: "#FF5733",
+  };
+
   useEffect(() => {
     fetch("../../data.json", {
       headers: { Accept: "application/json" },
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("Dados recebidos:", res);
-        setProducts(res.products);
+        const produtosPorTipo = res.products.reduce((acc, product) => {
+          const tipo = product.type;
+          if (!acc[tipo]) {
+            acc[tipo] = [];
+          }
+          acc[tipo].push({
+            ...product,
+            identificadorCor: coresIdentificacao[product.type], // Certifique-se de que esta linha está definindo a cor corretamente
+          });
+          return acc;
+        }, {});
+  
+        setProducts(produtosPorTipo);
       });
   }, []);
 
@@ -88,32 +106,17 @@ const ProductList = () => {
 
   const { theme, toggleTheme } = useTheme();
 
-  const toggleImg = (theme: string) => {
-    
-    if (theme === "light") {
-      return (
-        <img
-        src= {modoNoturno}
-        alt= "light"
-        />
-      )
-    } else {
-      return (
-        <img
-        src= {sol}
-        alt= "dark"
-        />
-      );
-    }
-  }
-
   return (
     <Container theme={theme}>
       <Title>Controle de Estoque</Title>
-      <BotaoTheme theme={theme} onClick={toggleTheme}>{toggleImg(theme)}
+      <BotaoTheme theme={theme} onClick={toggleTheme}>
+        {theme === "light" ? (
+          <img src={modoNoturno} alt="light" /> 
+        ) : (
+          <img src={modoClaro} alt="dark" />
+        )}
       </BotaoTheme>
       <ProductForm addProduct={handleAddProduct} />
-      <DivList theme={theme}>
         <DivFiltros>
           <InputSearch
             type="text"
@@ -135,21 +138,28 @@ const ProductList = () => {
           </Select>
         </DivFiltros>
         <List theme={theme}>
-          {filteredProducts.map((product, index) => (
-            <ProductItem
-              Remover={() => handleRemoveProduct(index)}
-              product={product}
-              openModal={(item: any) => openModal(item)}
-              newPrice={product.price}
-            />
-          ))}
+        {Object.keys(products).map((tipo) => (
+          <React.Fragment key={tipo}>
+            <h3>{tipo}</h3>
+            {filteredProducts.map((product, index) => (
+              <div style={{ marginBottom: "20px" }}>
+                <ProductItem
+                  style={{ backgroundColor: product.identificadorCor }}
+                  Remover={() => handleRemoveProduct(index)}
+                  product={product}
+                  openModal={(item: any) => openModal(item)}
+                  newPrice={product.price}
+                />
+              </div>
+            ))}
+            </React.Fragment>
+        ))}
         </List>
         <Modal
           show={isModalOpen}
           onClose={closeModal}
           onConfirmRemove={() => handleRemoveProduct}
         />
-      </DivList>
     </Container>
   );
 };

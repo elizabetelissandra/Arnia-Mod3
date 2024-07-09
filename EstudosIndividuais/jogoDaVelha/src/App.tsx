@@ -1,17 +1,18 @@
-import  AppStyled  from './App'
-import JogoDaVelha from './components/JogoDaVelha'
-
+import AppStyled from "./App";
+import JogoDaVelha from "./components/JogoDaVelha";
+import { LogicaProvider } from "./context/logicaProvider";
 
 function App() {
-
   return (
     <>
-      <AppStyled>
-        <h1>Jogo da velha</h1>
-        <JogoDaVelha/>
-      </AppStyled>
+      <LogicaProvider>
+        <AppStyled>
+          <h1>Jogo da velha</h1>
+          <JogoDaVelha />
+        </AppStyled>
+      </LogicaProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
