@@ -1,7 +1,6 @@
-import styled, { keyframes } from "styled-components";
-import { useTheme } from "../context/ThemeContext";
+import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div<{ theme: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,16 +8,16 @@ export const Container = styled.div`
   width: 100%;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-  background-color: ${({ theme }: string) =>
+  background-color: ${({ theme }) =>
     theme === "dark" ? "#333" : "#8C5E4D"};
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h1<{ theme: string }>`
   font-size: 40px;
   margin-bottom: 20px;
-  color: ${({ theme }: string) => (theme === "dark" ? "#D9D9D9" : "#fff")};
+  color: ${({ theme }) => (theme === "dark" ? "#D9D9D9" : "#fff")};
 `;
-export const DivList = styled.div`
+export const DivList = styled.div<{ theme: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +61,7 @@ export const Option = styled.option`
     font-weight: bold
 `;
 
-export const List = styled.ul`
+export const List = styled.ul<{ theme: string }>`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -83,8 +82,32 @@ export const DivPreco = styled.div`
   margin-bottom: 20px;
 `;
 
+export const DivSaldoEBotao = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  margin-bottom: 20px;
+`;
 
-export const BotaoTheme = styled.button`
+export const DivCarteira = styled.div<{ theme: string }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: ${({ theme }) =>
+    theme === "dark" ? "#012E40" : "#D9D9D9"};
+  color: ${({ theme }) => (theme === "dark" ? "#fff" : "#000")};
+  font-weight: bold;
+  font-size: 18px;
+  `;
+
+export const BotaoTheme = styled.button<{ theme: string }>`
   width: 100px;
   height: 80px;
   padding: 10px;
@@ -92,24 +115,37 @@ export const BotaoTheme = styled.button`
   border-radius: 10px;
   background-color: ${({ theme }) =>
     theme === "dark" ? "#012E40" : "#D9D9D9"};
-  color: ${({ theme }: string) => (theme === "dark" ? "#fff" : "#000")};
+  color: ${({ theme }) => (theme === "dark" ? "#fff" : "#000")};
   font-weight: bold;
   font-size: 18px;
 
   img {
     width: 40px;
     height: 40px;
-
-    animation: ${({ theme }) => (theme === "dark" ? spin : "")};
   }
 `;
 
-const spin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
 
+export const DivCategorias = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+`
+
+export const DivCategorias2 = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+`
+
+export const H3Categorias = styled.h3<{ theme: string }>`
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: ${({ theme }) => (theme === "dark" ? "#D9D9D9" : "#fff")};
+`

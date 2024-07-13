@@ -31,6 +31,15 @@ export const Pergunta = styled.p`
     margin-bottom: 20px;
 `
 
+export const InputQuant = styled.input`
+    width: 40px;
+    height: 30px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+`
+
 export const CloseButton = styled.button`
     background: #ff5c5c;
     border: none;

@@ -13,10 +13,12 @@ import { useTheme } from "../context/ThemeContext";
 
 const ProductForm = ({ addProduct }: ProductFormProps) => {
   const [produto, setProduto] = useState({
+    id: '',
     name: "",
     description: "",
     price: "",
     quantity: "",
+    type: "",
     isDrink: false,
     isFood: false,
     isCleaningProduct: false,
@@ -41,17 +43,19 @@ const ProductForm = ({ addProduct }: ProductFormProps) => {
     addProduct(newProduct);
     console.log(newProduct);
     setProduto({
+      id: "",
       name: "",
       description: "",
       price: "",
       quantity: "",
+      type: "",
       isDrink: false,
       isFood: false,
       isCleaningProduct: false,
     });
   };
 
-  const {theme} = useTheme()
+  const { theme } = useTheme();
 
   return (
     <Container theme={theme}>
@@ -126,7 +130,9 @@ const ProductForm = ({ addProduct }: ProductFormProps) => {
             />
           </BoxInput>
         </LabelCheckbox>
-        <Button theme={theme} type="submit">Cadastrar</Button>
+        <Button theme={theme} type="submit">
+          Cadastrar
+        </Button>
       </Form>
     </Container>
   );

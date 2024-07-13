@@ -1,40 +1,88 @@
  { "products": [
     {
+        "id": 1,
         "name": "Coca-cola",
         "description": "Refrigerante lata",
         "price": 5,
         "quantity": 10,
-        "type": "bebida",
+        "type": "Bebida",
         "isDrink": true,
         "isFood": false,
         "isCleaningProduct": false
     },
     {
+        "id": 2,
         "name": "Cerveja",
         "description": "Cerveja long neck",
         "price": 10,
         "quantity": 5,
-        "type": "bebida",
+        "type": "Bebida",
         "isDrink": true,
         "isFood": false,
         "isCleaningProduct": false
     },
     {
+        "id": 3,
         "name": "Macarrão",
         "description": "Macarrão parafuso",
         "price": 5,
         "quantity": 10,
-        "type": "comida",
+        "type": "Comida",
         "isDrink": false,
         "isFood": true,
         "isCleaningProduct": false
     },
     {
+        "id": 4,
         "name": "Sabão em po",
         "description": "Sabão em po 500ml",
         "price": 5,
         "quantity": 10,
-        "type": "limpeza",
+        "type": "Limpeza",
+        "isDrink": false,
+        "isFood": false,
+        "isCleaningProduct": true
+    },
+    {
+        "id": 5,
+        "name": "Sabão em barra",
+        "description": "Sabão em barra 500ml",
+        "price": 5,
+        "quantity": 10,
+        "type": "Limpeza",
+        "isDrink": false,
+        "isFood": false,
+        "isCleaningProduct": true
+    },
+    {
+        "id": 6,
+        "name": "Arroz",
+        "description": "Arroz de 5kg",
+        "price": 5,
+        "quantity": 10,
+        "type": "Comida",
+        "isDrink": false,
+        "isFood": true,
+        "isCleaningProduct": false
+    },
+    {
+        "id": 7,
+        "name": "Feijão",
+        "description": "Feijão de 5kg",
+        "price": 5,
+        "quantity": 10,
+        "type": "Comida",
+        "isDrink": false,
+        "isFood": true,
+        "isCleaningProduct": false
+    },
+    {
+        "id": 8,
+        "name": "Pasta de dente",
+        "description": "Pasta com fluor de 500g",
+        "price": 5,
+        "quantity": 10,
+        "type": "Limpeza",
         "isDrink": false,
         "isFood": false,
         "isCleaningProduct": true

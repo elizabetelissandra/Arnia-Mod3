@@ -17,9 +17,7 @@ const ProductItem = ({ product, openModal }: ProductItemProps) => {
   const [price, setPrice] = useState(product.price);
   
 
-const handleRemove = () => {
-  openModal(product);
-};
+
 
   const addToCart = () => {
     setQuantity(q => Number(q) + 1);
@@ -76,7 +74,7 @@ const handleRemove = () => {
           <ButtonQuantidades theme={theme} onClick={addToCart} >+</ButtonQuantidades>
         </Quantidades>
         <Paragraph>Total: R${product.price * quantity}</Paragraph>
-        <ButtonRemover theme={theme} onClick={handleRemove}>Remover</ButtonRemover>
+        <ButtonRemover theme={theme} onClick={() => openModal(product.id)}>Remover</ButtonRemover>
       </Box>
     </Item>
   );

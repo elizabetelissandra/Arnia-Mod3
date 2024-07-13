@@ -2,6 +2,7 @@ export interface ProductItemProps {
     openModal: (item: any) => void;
     newPrice: string | number | null;
     product: {
+      id: number;
       name: string;
       description: string;
       price: number;
@@ -11,5 +12,5 @@ export interface ProductItemProps {
       isFood: boolean
       isCleaningProduct: boolean
     };
-    Remover: () => void;
+    Remover: (quantity: number) => void;
   }
