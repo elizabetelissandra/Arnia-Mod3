@@ -1,17 +1,9 @@
 import "./App.css";
-import ProductList from "./components/ProductList";
+import Routes from "./routes/routes.tsx";
+
 function App() {
-  const handleAddProduct = () => {};
-
-  function handleRemoverProduct(): void {}
-
   return (
-    <>
-        <ProductList
-          addProduct={() => handleAddProduct}
-          Remover={handleRemoverProduct}
-        />
-    </>
+   <Routes/>
   );
 }
 

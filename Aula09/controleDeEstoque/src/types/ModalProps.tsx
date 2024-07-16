@@ -14,6 +14,6 @@ export interface ModalProps{
         isCleaningProduct: boolean
     }[]
     itemToRemove: number | null
-    handleQuantityChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+    handleQuantityChange: (event: React.ChangeEvent<HTMLInputElement>, productId: number) => void
     quantity: number
 }

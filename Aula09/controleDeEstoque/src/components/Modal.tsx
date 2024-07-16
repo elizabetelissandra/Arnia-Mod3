@@ -9,16 +9,16 @@ import {
 } from "../styles/ModalStyles";
 import { ModalProps } from "../types/ModalProps";
 
-const Modal = ({show, onClose, onConfirmRemove, handleQuantityChange, quantity }: ModalProps) => {
+const Modal = ({show, onClose, onConfirmRemove, handleQuantityChange, quantity, itemToRemove, products }: ModalProps) => {
   
 
-  // const productIdParaBuscar = itemToRemove;
+  const productIdParaBuscar = itemToRemove;
 
-  // const produtoEncontrado = products.find(produto => produto.id === productIdParaBuscar);
+  const produtoEncontrado = products.find(produto => produto.id === productIdParaBuscar);
 
-  // if(!produtoEncontrado){
-  //   return null
-  // }
+  if(!produtoEncontrado){
+    return null
+  }
   
 
     if (!show) {
@@ -34,6 +34,8 @@ const Modal = ({show, onClose, onConfirmRemove, handleQuantityChange, quantity }
           </Pergunta>
           <InputQuant
             type="number"
+            min={1}
+            max={produtoEncontrado.quantity}
             value={quantity}
             onChange={handleQuantityChange}
             placeholder="Informe quantidade desejada"

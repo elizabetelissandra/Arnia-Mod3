@@ -22,6 +22,9 @@ import { useTheme } from "../context/ThemeContext";
 import modoNoturno from "../img/modo-noturno.png";
 import modoClaro from "../img/sol.png";
 import React from "react";
+import { Link } from "react-router-dom";
+import { HomeStyled, Nav, Ul, Li } from "../styles/HomeStyles";
+
 
 const ProductList = () => {
   const [products, setProducts] = useState<
@@ -85,12 +88,13 @@ const ProductList = () => {
     setIsModalOpen(false);
   };
 
-  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>, productId: number) => {
+  const handleQuantityChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    productId: number
+  ) => {
     const newQuantity = Number(event.target.value);
-    const produtos = products.find((product) => {
-     if( product.id === productId){
-      return product}
-    })
+    const produtos = products.find((product) => product.id === productId);
+    if (!produtos) return;
     if (newQuantity <= 0) {
       setQuantity(1);
     } else if (newQuantity > produtos.quantity) {
@@ -100,27 +104,24 @@ const ProductList = () => {
     }
   };
 
-  // useEffect(() => {
-   
-  // }, []);
+  useEffect(() => {
+    const product = products.find((product) => product.id === itemToRemove);
+    if (!product) return;
+    const lucroLimit = product.price * 0.2;
+    const valorVenda = product.price + lucroLimit;
+    if (Math.random() < 0.5) {
+      setWallet(wallet + valorVenda * product.quantity);
+    } else {
+      setProducts(products.filter((product) => product.id !== itemToRemove));
+    }
+  }, [products]);
 
   const handleSellProduct = (productId: number) => {
     /* Criada para vender os itens e limitar o lucro em 20% */
     const productSell = products.find((product) => product.id === productId);
     if (!productSell) return;
 
-    const quantityAvailable = productSell.quantity;
-    const lucroLimit = productSell.price * 0.2;
-    const valorVenda = productSell.price + lucroLimit;
-
-      if (Math.random() < 0.5) {
-        setWallet(wallet + (valorVenda * quantityAvailable));
-      } else {
-        setProducts(products.filter((product) => product.id !== itemToRemove));
-      }
-
-
-    const newQuantity = quantityAvailable - quantity;
+    const newQuantity = productSell.quantity - quantity;
     setProducts(
       products.map((product) =>
         product.id === productId
@@ -128,8 +129,6 @@ const ProductList = () => {
           : product
       )
     );
-
-    
   };
 
   const filteredProducts = products.filter(
@@ -177,6 +176,7 @@ const ProductList = () => {
   const totalProducts = countProductByType(products);
 
   return (
+    
     <Container theme={theme}>
       <Title>Controle de Estoque</Title>
       <DivSaldoEBotao>
@@ -232,9 +232,10 @@ const ProductList = () => {
           itemToRemove !== null && handleSellProduct(itemToRemove)
         }
         products={products}
-        handleQuantityChange={() => handleQuantityChange()}
+        handleQuantityChange={handleQuantityChange}
         quantity={quantity}
-        />
+        itemToRemove={itemToRemove}
+      />
     </Container>
   );
 };
