@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HomeStyled = styled.div`
@@ -15,7 +16,7 @@ export const HomeStyled = styled.div`
 export const Title = styled.h1`
     font-size: 40px;
     margin-bottom: 20px;
-    color: #D9D9D9;
+    color: #151F30;
 `
 
 export const Nav = styled.nav`
@@ -26,6 +27,11 @@ export const Nav = styled.nav`
 `
 
 export const Ul = styled.ul`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
     gap: 20px;
     font-size: 20px;
     margin-bottom: 20px;
@@ -68,3 +74,12 @@ export const SummaryItem = styled.p`
   margin: 5px 0;
   color: #555;
 `;
+
+export const LinkStyled = styled(Link)`
+    text-decoration: none;
+    color: #D9D9D9;
+
+    &:hover {
+        text-decoration: underline;
+    }
+`

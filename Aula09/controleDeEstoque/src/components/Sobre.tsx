@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
+import { SobreStyled, Title, P, Ul, LinkStyled } from "../styles/SobreStyles.ts";
 
-import { SobreStyled, Title, P, Ul } from "../styles/SobreStyles.ts";
-import { BotaoTheme, DivSaldoEBotao } from "../styles/ProductListStyles.ts";
+
 
 const Sobre = () => {
   return (
@@ -11,12 +10,12 @@ const Sobre = () => {
       <Ul>
         <li>Versão 1.0 -
         Desenvolvido por{" "}
-        <Link to="https://github.com/elizabetelissandra">
+        <LinkStyled to="https://github.com/elizabetelissandra">
           Elizabete Lissandra
-        </Link>
+        </LinkStyled>
         </li>
       </Ul>
-      <P>Retornar ao <Link to="/home">inicio</Link></P>
+      <P>Retornar ao <LinkStyled to="/">home</LinkStyled></P>
     </SobreStyled>
   );
 };

@@ -13,7 +13,6 @@ import {
   DivCategorias,
   H3Categorias,
   DivCategorias2,
-  DivSaldo,
   DivSaldoEBotao,
   DivCarteira,
 } from "../styles/ProductListStyles";
@@ -22,9 +21,7 @@ import { useTheme } from "../context/ThemeContext";
 import modoNoturno from "../img/modo-noturno.png";
 import modoClaro from "../img/sol.png";
 import React from "react";
-import { Link } from "react-router-dom";
-import { HomeStyled, Nav, Ul, Li } from "../styles/HomeStyles";
-
+import NavBar from "./Navbar";
 
 const ProductList = () => {
   const [products, setProducts] = useState<
@@ -176,67 +173,69 @@ const ProductList = () => {
   const totalProducts = countProductByType(products);
 
   return (
-    
-    <Container theme={theme}>
-      <Title>Controle de Estoque</Title>
-      <DivSaldoEBotao>
-        <BotaoTheme theme={theme} onClick={toggleTheme}>
-          {theme === "light" ? (
-            <img src={modoNoturno} alt="light" />
-          ) : (
-            <img src={modoClaro} alt="dark" />
-          )}
-        </BotaoTheme>
-        <DivCarteira theme={theme}>Saldo: R$ {wallet.toFixed(2)}</DivCarteira>
-      </DivSaldoEBotao>
-      <ProductForm addProduct={handleAddProduct} />
-      <DivFiltros>
-        <InputSearch
-          type="text"
-          onChange={(e) => setSearchTerm(e.target.value)}
-          value={searchTerm}
-          placeholder="Pesquise um produto"
+    <>
+      <NavBar/>
+      <Container theme={theme}>
+        <Title>Controle de Estoque</Title>
+        <DivSaldoEBotao>
+          <BotaoTheme theme={theme} onClick={toggleTheme}>
+            {theme === "light" ? (
+              <img src={modoNoturno} alt="light" />
+            ) : (
+              <img src={modoClaro} alt="dark" />
+            )}
+          </BotaoTheme>
+          <DivCarteira theme={theme}>Saldo: R$ {wallet.toFixed(2)}</DivCarteira>
+        </DivSaldoEBotao>
+        <ProductForm addProduct={handleAddProduct} />
+        <DivFiltros>
+          <InputSearch
+            type="text"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
+            placeholder="Pesquise um produto"
+          />
+          <Select
+            id="type"
+            name="type"
+            onChange={handleChange}
+            value={productType}
+          >
+            <Option value="">Filtre pelo tipo:</Option>
+            <Option value="Comida">Comida</Option>
+            <Option value="Bebida">Bebida</Option>
+            <Option value="Limpeza">Limpeza</Option>
+          </Select>
+        </DivFiltros>
+        <List theme={theme}>
+          <DivCategorias>
+            <H3Categorias>
+              Comida - {totalProducts["Comida"]} produtos
+            </H3Categorias>
+            <DivCategorias2>{renderProductsByType("Comida")}</DivCategorias2>
+            <H3Categorias>
+              Bebida - {totalProducts["Bebida"]} produtos
+            </H3Categorias>
+            <DivCategorias2>{renderProductsByType("Bebida")}</DivCategorias2>
+            <H3Categorias>
+              Limpeza - {totalProducts["Limpeza"]} produtos
+            </H3Categorias>
+            <DivCategorias2>{renderProductsByType("Limpeza")}</DivCategorias2>
+          </DivCategorias>
+        </List>
+        <Modal
+          show={isModalOpen}
+          onClose={closeModal}
+          onConfirmRemove={() =>
+            itemToRemove !== null && handleSellProduct(itemToRemove)
+          }
+          products={products}
+          handleQuantityChange={handleQuantityChange}
+          quantity={quantity}
+          itemToRemove={itemToRemove}
         />
-        <Select
-          id="type"
-          name="type"
-          onChange={handleChange}
-          value={productType}
-        >
-          <Option value="">Filtre pelo tipo:</Option>
-          <Option value="Comida">Comida</Option>
-          <Option value="Bebida">Bebida</Option>
-          <Option value="Limpeza">Limpeza</Option>
-        </Select>
-      </DivFiltros>
-      <List theme={theme}>
-        <DivCategorias>
-          <H3Categorias>
-            Comida - {totalProducts["Comida"]} produtos
-          </H3Categorias>
-          <DivCategorias2>{renderProductsByType("Comida")}</DivCategorias2>
-          <H3Categorias>
-            Bebida - {totalProducts["Bebida"]} produtos
-          </H3Categorias>
-          <DivCategorias2>{renderProductsByType("Bebida")}</DivCategorias2>
-          <H3Categorias>
-            Limpeza - {totalProducts["Limpeza"]} produtos
-          </H3Categorias>
-          <DivCategorias2>{renderProductsByType("Limpeza")}</DivCategorias2>
-        </DivCategorias>
-      </List>
-      <Modal
-        show={isModalOpen}
-        onClose={closeModal}
-        onConfirmRemove={() =>
-          itemToRemove !== null && handleSellProduct(itemToRemove)
-        }
-        products={products}
-        handleQuantityChange={handleQuantityChange}
-        quantity={quantity}
-        itemToRemove={itemToRemove}
-      />
-    </Container>
+      </Container>
+    </>
   );
 };
 

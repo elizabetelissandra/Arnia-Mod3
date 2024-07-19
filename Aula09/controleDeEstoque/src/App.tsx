@@ -3,7 +3,7 @@ import Routes from "./routes/routes.tsx";
 
 function App() {
   return (
-   <Routes/>
+      <Routes />
   );
 }
 
