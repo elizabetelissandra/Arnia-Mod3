@@ -1,0 +1,195 @@
+{
+  "cafes": [
+    {
+      "id": 1,
+      "name": "Expresso Tradicional",
+      "category": "Tradicionais",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/ExpressoTradicional.png"
+    },
+
+    {
+      "id": 2,
+      "name": "Expresso Americano",
+      "category": "Tradicionais",
+      "description": "Expresso diluido, menos intenso que o tradicional",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/ExpressoAmericano.png"
+    },
+
+    {
+      "id": 3,
+      "name": "Expresso Cremoso",
+      "category": "Tradicionais",
+      "description": "Cafe expresso tradicional com espuma cremosa",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/ExpressoCremoso.png"
+    },
+
+    {
+      "id": 4,
+      "name": "Expresso Gelado",
+      "category": "Tradicionais",
+      "description": "Bebida preparada com cafe expresso e cubos de gelo",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/ExpressoGelado.png"
+    },
+
+    {
+      "id": 5,
+      "name": "Latte",
+      "category": "Tradicionais",
+      "description": "Café expresso com o dobro de leite e espuma cremosa",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/Latte.png"
+    },
+
+    {
+      "id": 6,
+      "name": "Capuccino",
+      "category": "Doces",
+      "description": "Bebida com canela feita de doses iguais de cafe, leite e espuma",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/Capuccino.png"
+    },
+
+    {
+      "id": 7,
+      "name": "Mocaccino",
+      "category": "Doces",
+      "description": "Cafe expresso com calda de chocolate, pouco leite e espuma",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/Mocaccino.png"
+    },
+
+    {
+      "id": 8,
+      "name": "Chocolate Quente",
+      "category": "Doces",
+      "description": "Cafe expresso com calda de chocolate, leite e espuma",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/ChocolateQuente.png"
+    },
+
+    {
+      "id": 9,
+      "name": "Cubano",
+      "category": "Especiais",
+      "description": "Drink gelado de café expresso com rum, creme de leite e hortelã",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/Cubano.png"
+    },
+
+    {
+      "id": 10,
+      "name": "Havaiano",
+      "category": "Especiais",
+      "description": "Bebida adocicada preparada com cafe e leite de coco",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/Havaiano.png"
+    },
+
+    {
+      "id": 11,
+      "name": "Árabe",
+      "category": "Especiais",
+      "description": "Bebida preparada com grãos de café árebe e especiarias",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/Árabe.png"
+    },
+
+    {
+      "id": 12,
+      "name": "Irlandês",
+      "category": "Especiais",
+      "description": "Bebida a base de cafe, uísque irlandês, açucar e chantilly",
+      "sizes": [
+        {
+          "size": "114ml",
+          "price": 4.9
+        },
+        { "size": "140ml", "price": 5.9 },
+        { "size": "227ml", "price": 9.9 }
+      ],
+      "image": "../src/img/Irlandês.png"
+    }
+  ]
+}
