@@ -8,13 +8,13 @@ import Typography from '@mui/material/Typography';
 interface BasicTextFieldsProps {
     title: string
     content: string
-    handleChange: (cardId: string) => void
-    deleteCard: (e: any) => void
     cardId: string
+    handleChange: (cardId: string) => void
+    deleteCard: () => void
 
 }
 
-const CardTrello = ({title, content, handleChange, cardId, deleteCard}: BasicTextFieldsProps)  => {
+const CardTrello = ({title, content, handleChange,cardId,  deleteCard}: BasicTextFieldsProps)  => {
   return (
     <Card sx={{ width: 250, height: 200 }} >
       {/* <CardMedia
@@ -23,7 +23,7 @@ const CardTrello = ({title, content, handleChange, cardId, deleteCard}: BasicTex
         title="green iguana"
       /> */}
       <CardContent>
-        <Button size="small" onClick={() => handleChange( cardId)}>Editar</Button>
+        <Button size="small" onClick={() => handleChange(cardId)}>Editar</Button>
         <Typography gutterBottom variant="h6" component="div">
           {title}
         </Typography>

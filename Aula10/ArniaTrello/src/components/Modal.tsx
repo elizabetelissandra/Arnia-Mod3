@@ -7,13 +7,23 @@ import TextField from "@mui/material/TextField";
 import { DivForm, DivModal } from "../styles/ModalStyles";
 import { Fade, style } from "./FadeModal";
 
+interface ModalProps{
+  handleClose: () => void
+  handleSubmit: () => void
+  open: boolean
+  setTitulo: React.Dispatch<React.SetStateAction<string>>
+  setDescricao: React.Dispatch<React.SetStateAction<string>>
+  titulo: string
+  descricao: string
+  isEditing: boolean
+}
 
-export default function SpringModal({handleOpen, handleClose, handleSubmit, open, setTitulo, setDescricao, titulo, descricao}: any) {
+
+export default function SpringModal({ handleClose, handleSubmit, open, setTitulo, setDescricao, titulo, descricao, isEditing}: ModalProps) {
  
 
   return (
     <div>
-      <Button onClick={handleOpen}>Criar Tarefa</Button>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"
@@ -28,9 +38,10 @@ export default function SpringModal({handleOpen, handleClose, handleSubmit, open
         }}
       >
         <Fade in={open}>
+          
           <Box sx={style}>
             <Typography id="spring-modal-title" variant="h6" component="h2">
-              <DivModal>Criar nova Tarefa</DivModal>
+              <DivModal>{isEditing ? "Editar Tarefa" : "Criar nova Tarefa"}</DivModal>
             </Typography>
             <Typography id="spring-modal-description" sx={{ mt: 2 }}>
               <DivForm>
@@ -44,16 +55,16 @@ export default function SpringModal({handleOpen, handleClose, handleSubmit, open
                 />
                 <TextField
                   id="outlined-textarea"
-                  label="Multiline Placeholder"
+                  label="Conteúdo"
                   fullWidth
                   placeholder="Placeholder"
                   rows={5}
-                  color="warning"
+                  color="error"
                   value={descricao}
                   onChange={(e) => setDescricao(e.target.value)}
                   multiline
                 />
-                <Button onClick={handleSubmit}>Criar Tarefa</Button>
+                <Button onClick={handleSubmit}>{isEditing ? "Editar Tarefa" : "Criar Tarefa"}</Button>
               </DivForm>
             </Typography>
           </Box>
