@@ -51,7 +51,7 @@ const Login: React.FC = () => {
         
       
       
-      // window.location.href = "/trello";
+      window.location.href = "/trello";
       
      } catch (error) {
       console.log("Erro ao enviar os dados", error);

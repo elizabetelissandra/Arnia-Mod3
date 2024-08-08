@@ -55,7 +55,6 @@ export const DivTabelas = styled.div`
     border-radius: 15px;
     padding: 20px;
     width: 2000px;
-    height: 2000px
     gap: 20px;
 `
 export const DivByTarefas = styled.div`
@@ -66,7 +65,7 @@ export const DivByTarefas = styled.div`
     padding: 20px;
     width: 1500px; 
     margin: 0 auto;
-    height: 100vh;
+    height: 1000px;
     gap: 20px;
 `
 
@@ -80,7 +79,7 @@ export const DivTarefas = styled.div`
     padding: 20px;
     width: 1000px; 
     margin: 0 auto;
-    height: 100%;
+    height: 1000px;
     gap: 20px;
 `
 
