@@ -48,6 +48,7 @@ export default function SpringModal({ handleClose, handleSubmit, open, setTitulo
                 <TextField
                   id="outlined-basic"
                   label="Título"
+                  placeholder="Digite aqui o título da tarefa"
                   variant="outlined"
                   color="warning"
                   value={titulo}
@@ -57,14 +58,14 @@ export default function SpringModal({ handleClose, handleSubmit, open, setTitulo
                   id="outlined-textarea"
                   label="Conteúdo"
                   fullWidth
-                  placeholder="Placeholder"
+                  placeholder="Digite aqui o conteúdo da tarefa"
                   rows={5}
-                  color="error"
+                  color="warning"
                   value={descricao}
                   onChange={(e) => setDescricao(e.target.value)}
                   multiline
                 />
-                <Button onClick={handleSubmit}>{isEditing ? "Editar Tarefa" : "Criar Tarefa"}</Button>
+                <Button variant="contained" color="error" onClick={handleSubmit}>{isEditing ? "Editar Tarefa" : "Criar Tarefa"}</Button>
               </DivForm>
             </Typography>
           </Box>

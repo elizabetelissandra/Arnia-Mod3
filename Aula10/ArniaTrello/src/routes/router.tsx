@@ -4,13 +4,7 @@ import Trello from "../pages/Trello";
 import Cadastro from "../pages/Cadastro";
 
 
-// const AccessPrivateRoutes = () => {
-//   const {authentified} = useAuth();
 
-//   // if(!authentified){
-//   // return  <Navigate to="/login"/>
-//   // }
-// }
 const Routes = () => {
 
   return (

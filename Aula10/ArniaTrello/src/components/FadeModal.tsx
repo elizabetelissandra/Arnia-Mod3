@@ -52,8 +52,8 @@ interface FadeProps {
     transform: "translate(-50%, -50%)",
     width: 600,
     height: 500,
-    bgcolor: "#fbe9e7",
-    border: "2px solid #000",
+    bgcolor: "#fff",
+    borderRadius: "15px",
     boxShadow: 24,
     p: 4,
   };

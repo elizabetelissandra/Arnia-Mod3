@@ -5,9 +5,8 @@ export const DivModal = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
     border-radius: 15px;
-    background-color: #ff8a65;
+    border: 2px solid #BF3641;
     color: black;
     padding: 20px;
     width: 100%; 
@@ -17,6 +16,7 @@ export const DivForm = styled.div`
     display: flex;
     flex-direction: column;
     gap: 50px;
+    margin-top: 10px;
     margin-bottom: 10px;
     width: 100%;
     align-items: center;

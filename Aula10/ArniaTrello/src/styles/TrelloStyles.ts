@@ -54,17 +54,17 @@ export const DivTabelas = styled.div`
     justify-content: center;
     border-radius: 15px;
     padding: 20px;
-    width: 2000px;
+    width: 100%;
     gap: 20px;
 `
 export const DivByTarefas = styled.div`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     border-radius: 15px;
     padding: 20px;
-    width: 1500px; 
     margin: 0 auto;
+    width: 100%;
     height: 1000px;
     gap: 20px;
 `
@@ -77,9 +77,9 @@ export const DivTarefas = styled.div`
     border-radius: 15px;
     background-color: #BF3641;
     padding: 20px;
-    width: 1000px; 
+    width: 100%;
+    min-height: 900px;
     margin: 0 auto;
-    height: 1000px;
     gap: 20px;
 `
 

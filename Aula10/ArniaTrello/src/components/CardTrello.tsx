@@ -38,6 +38,7 @@ const CardTrello = ({
         mb: 2,
         display: "flex",
         flexDirection: "column",
+        borderRadius: 5,
         justifyContent: "space-around",
         alignItems: "center",
       }}
